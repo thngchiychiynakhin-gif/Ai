@@ -235,8 +235,8 @@ print()
 # 9. TRAIN / TEST SPLIT
 # ============================================================
 #
-# 80% Training
-# 20% Testing
+# 60% Training
+# 40% Testing
 #
 # stratify=y keeps the class distribution similar
 #
@@ -246,7 +246,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
 
-    test_size=0.20,
+    test_size=0.40,
 
     random_state=42,
 
@@ -268,6 +268,11 @@ print(
     len(X_test)
 )
 
+print(
+    f"Train/Test ratio: {len(X_train) / len(X):.0%} / "
+    f"{len(X_test) / len(X):.0%}"
+)
+
 print()
 
 
@@ -281,7 +286,7 @@ print("=" * 60)
 
 model = RandomForestClassifier(
 
-    n_estimators=200,
+    n_estimators=600,
 
     random_state=42,
 
